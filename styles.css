@@ -1,0 +1,26 @@
+body {
+    font-family:Helvetica;
+    /* background-color: rgb(134, 103, 75); */
+    color: rgb(18, 16, 15);
+}
+
+.container, #wordContainer, #resultContainer {
+    border: 2px solid black; 
+    border-radius: 10px;
+    min-width: 5em;
+    min-height: 1.5em;
+    margin: 0.5em;
+}
+.container {
+    font-size: large;
+    padding: 20px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;  
+}
+
+input {
+    font-size: large;
+}
