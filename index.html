@@ -8,12 +8,12 @@
 </head>
 <body>
     <h1>Vocabulary Tool</h1>
-    <div class="container">
+    <div class="container" id="vocabularyCreator">
             <span>
                 <input type="text" placeholder="english" value="" id="inputWord">
                 <input type="text" placeholder="definition" value="" id="inputDefinition">
-                <button title="add" id="addBtn">ADD</button>
-                <button title="remove" id="removeBtn">REMOVE</button>
+                <button  id="addBtn">ADD</button>
+                <button  id="removeBtn">REMOVE</button>
             </span>
             
           
@@ -22,12 +22,13 @@
 
             <div class="container">
                 <h3>Word List</h3>
-                <div id="vocabularyDisplay"></>
+                <div id="vocabularyDisplay"></div>
             </div>
-            
+            <button  id="startTestBtn">START TEST</button>
     </div>
 
-    <div class="container">
+    <div class="container" id="vocabularyTest">
+        <button  id="goBackBtn">GO BACK</button>
         <div class="container">
             <input type="button" value="Generate word" id="generateBtn">
             <div class="container" id="wordContainer">word</div>

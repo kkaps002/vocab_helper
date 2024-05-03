@@ -1,36 +1,3 @@
-const customVocabulary = [
-    // {english: "car",
-    //  german: "das Auto"},
-    // {english: "bed",
-    //  german: "das Bett"},
-    // {english: "kitchen",
-    //  german: "die Küche"},
-    //  {english: "radio",
-    //  german: "das Radio"},
-    //  {english: "chair",
-    //  german: "der Stuhl"},
-    //  {english: "clock",
-    //  german: "die Uhr"},
-    //  {english: "similar",
-    //  german: "änlich"},
-    //  {english: "comfortable",
-    //  german: "bequem"},
-    //  {english: "honest",
-    //  german: "ehrlich"},
-    //  {english: "broken",
-    //  german: "kaputt"},
-    //  {english: "empty",
-    //  german: "leer"},
-    //  {english: "happy",
-    //  german: "lustig"},
-    //  {english: "practical",
-    //  german: "praktisch"} 
-]; 
-
-// uncomment to fill local storage with dummy data
-//localStorage.setItem("customVocabulary", JSON.stringify(customVocabulary));
-
-// ---------------------------------------------------------------------------------
 let addBtn = document.getElementById("addBtn");
 let removeBtn = document.getElementById("removeBtn");
 let inputWord = document.getElementById("inputWord");
@@ -38,6 +5,10 @@ let inputDefinition = document.getElementById("inputDefinition");
 let testCounter = document.getElementById("testCounter");
 let clearListBtn = document.getElementById("clearListBtn");
 let vocabularyDisplay = document.getElementById("vocabularyDisplay");
+let vocabularyTest = document.getElementById("vocabularyTest");
+let vocabularyCreator = document.getElementById("vocabularyCreator");
+let startTestBtn = document.getElementById("startTestBtn");
+let goBackBtn = document.getElementById("goBackBtn");
 
 let generateBtn = document.getElementById("generateBtn");
 let wordContainer = document.getElementById("wordContainer");
@@ -45,13 +16,19 @@ let usrInput = document.getElementById("usrInput");
 let wordSubmit = document.getElementById("wordSubmit");
 let resultContainer = document.getElementById("resultContainer");
 // ---------------------------------------------------------------------------------
-
+vocabularyTest.style.display = "none";
 //initialise vocabulary variable / retrieve data from local storage
 updateVocabulary();
-
 // ---------------------------------------------------------------------------------
-
-
+startTestBtn.addEventListener("click", () => {
+    vocabularyTest.style.display = "flex";
+    vocabularyCreator.style.display = "none";
+});
+goBackBtn.addEventListener("click", () => {
+    vocabularyCreator.style.display = "flex";
+    vocabularyTest.style.display = "none";
+    
+});
 addBtn.addEventListener("click", () => {
     let word = inputWord.value;
     let definition = inputDefinition.value;
@@ -61,8 +38,6 @@ addBtn.addEventListener("click", () => {
         console.log("no empty strings");
         return;
     }
-
-
     //add conditional to check for duplicates!!!!!!!!!!!!!!!!!!
     
     let tempArray = JSON.parse(localStorage.customVocabulary);
@@ -90,14 +65,11 @@ clearListBtn.addEventListener("click", () => {
     updateVocabulary();
 });
 // ---------------------------------------------------------------------------------
-
 let indexArr = []; //array that stores index of words that have been shown 
 let testCount = 0; //keep track of how many words are left
-
 const randomNum = () => {
     return Math.floor(Math.random() * vocabulary.length);
-}
-    
+}    
 const generateNewWord = () => {
     
         let randomIndex = randomNum();
@@ -164,11 +136,8 @@ function updateVocabulary() {
         vocabulary = JSON.parse(localStorage.customVocabulary);
         console.log(vocabulary);
         updateVocabularyDisplay();
-    }
-
-    
+    }   
 }
-
 function updateVocabularyDisplay() {
 
         //reset the display to avoid appending already existing words
