@@ -11,26 +11,57 @@ body {
     margin: 0.5em;
 }
 .container {
-    border: 2px solid black; 
-    border-radius: 10px;
+    border: 1px solid black; 
+    border-radius: 3px;
     font-size: large;
     padding: 20px;
+    text-align: center;
     display: flex;
-    flex-direction:column;
+    /* flex-direction:column; */
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     gap: 10px;  
 }
 
  #wordContainer {
     background-color: blanchedalmond;    
     border: 1px dashed black;
+    
 }
 
-input {
+#vocabularyCreator {
+    text-align: center;
+}
+
+button {
+    margin: 1em 0em;
+} 
+#startTestBtn {
+    background-color: blue;
+    color: white;
+}
+h3 {
+    text-decoration: underline;
+}
+li {
+    list-style-type: none;;
+}
+span {
+    display: block;
+    text-align: center;
+    width: 100%;
+   
+    margin-bottom: 2em;
+}
+
+input, button {
     font-size: large;
 }
-
+#resultContainer {
+    border: none;
+    display: block;
+    width: 50%;
+}
 .correct {
     border: none;
     background-color: green;
@@ -47,4 +78,13 @@ input {
     background-color: blue;
     font-weight: bold;
     color: white;
+}
+
+#bottom-section { 
+     text-align: center;
+}
+
+#bottom-container {
+    display: flex;
+    justify-content: center;
 }

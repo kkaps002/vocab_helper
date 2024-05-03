@@ -8,43 +8,40 @@
 </head>
 <body>
     <h1>Vocabulary Tool</h1>
-    <div class="container" id="vocabularyCreator">
+    <div id="vocabularyCreator">
             <span>
                 <input type="text" placeholder="english" value="" id="inputWord">
-                <input type="text" placeholder="definition" value="" id="inputDefinition">
+                <input type="text" placeholder="german" value="" id="inputDefinition">
                 <button  id="addBtn">ADD</button>
                 <button  id="removeBtn">REMOVE</button>
             </span>
+            <input type="submit" value="CLEAR LIST" id="clearListBtn">    
+            <button  id="startTestBtn">START TEST</button>   
             
-          
-            <!-- <input type="submit" value="SAVE LIST" id="saveListBtn"> -->
-            <input type="submit" value="CLEAR LIST" id="clearListBtn">
-
-            <div class="container">
-                <h3>Word List</h3>
-                <div id="vocabularyDisplay"></div>
+            <div id="bottom-section">
+                <div id="wordList"> 
+                    <h3>Word List</h3>
+                    <div id="vocabularyDisplay"></div>
+                </div>                    
             </div>
-            <button  id="startTestBtn">START TEST</button>
     </div>
 
     <div class="container" id="vocabularyTest">
         <button  id="goBackBtn">GO BACK</button>
         <div id="testCounter"></div>
        
-            <!-- <input type="button" value="Generate word" id="generateBtn"> -->
             <div class="container" id="wordContainer">word</div>
-      
-        
+
         <div class="container">
             <input type="text" placeholder="type your answer here..." id="usrInput">
             <input type="submit" id="wordSubmit"></div>
-            
-        <div class="container" id="resultContainer"></div>  
-        
     </div>
 
+    <div id="bottom-container">
+        <div class="container" id="resultContainer"></div> 
+    </div>
 
+       
 
-      
 </body>
 </html>

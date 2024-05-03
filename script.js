@@ -10,7 +10,6 @@ let vocabularyCreator = document.getElementById("vocabularyCreator");
 let startTestBtn = document.getElementById("startTestBtn");
 let goBackBtn = document.getElementById("goBackBtn");
 
-let generateBtn = document.getElementById("generateBtn");
 let wordContainer = document.getElementById("wordContainer");
 let usrInput = document.getElementById("usrInput");
 let wordSubmit = document.getElementById("wordSubmit");
@@ -186,7 +185,7 @@ function updateVocabularyDisplay() {
     }
 }
 
+
 function displayUnpracticedWords(word) {
     console.log("you need to practice this word more: " + word);
-
 }
