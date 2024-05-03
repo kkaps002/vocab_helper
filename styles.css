@@ -5,13 +5,14 @@ body {
 }
 
 .container, #wordContainer, #resultContainer {
-    border: 2px solid black; 
-    border-radius: 10px;
+   
     min-width: 5em;
     min-height: 1.5em;
     margin: 0.5em;
 }
 .container {
+    border: 2px solid black; 
+    border-radius: 10px;
     font-size: large;
     padding: 20px;
     display: flex;
@@ -21,6 +22,29 @@ body {
     gap: 10px;  
 }
 
+ #wordContainer {
+    background-color: blanchedalmond;    
+    border: 1px dashed black;
+}
+
 input {
     font-size: large;
+}
+
+.correct {
+    border: none;
+    background-color: green;
+    color: white;
+}
+
+.wrong {
+    border: none;
+    background-color: red;
+    color: white;
+}
+
+.finalScore {
+    background-color: blue;
+    font-weight: bold;
+    color: white;
 }

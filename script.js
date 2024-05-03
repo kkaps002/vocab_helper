@@ -23,10 +23,14 @@ updateVocabulary();
 startTestBtn.addEventListener("click", () => {
     vocabularyTest.style.display = "flex";
     vocabularyCreator.style.display = "none";
+    generateNewWord();
 });
 goBackBtn.addEventListener("click", () => {
-    vocabularyCreator.style.display = "flex";
-    vocabularyTest.style.display = "none";
+
+    location.reload();
+
+    //vocabularyCreator.style.display = "flex";
+    //vocabularyTest.style.display = "none";
     
 });
 addBtn.addEventListener("click", () => {
@@ -67,6 +71,8 @@ clearListBtn.addEventListener("click", () => {
 // ---------------------------------------------------------------------------------
 let indexArr = []; //array that stores index of words that have been shown 
 let testCount = 0; //keep track of how many words are left
+let finalScore = 0; //keep track of correct answers for final score
+
 const randomNum = () => {
     return Math.floor(Math.random() * vocabulary.length);
 }    
@@ -75,6 +81,15 @@ const generateNewWord = () => {
         let randomIndex = randomNum();
         //keep track of what words have already been shown to user
         if (indexArr.length === vocabulary.length){
+            //when the array of indexes shown to user reaches the same length as
+            //the vocabulary array then that means all the words have been shown
+            // so Final Score is ready to be displayed an no further input can be taken
+            resultContainer.textContent = "Final Score : " + finalScore + "/" + vocabulary.length;
+            wordSubmit.disabled = true;
+            //remove all other styles and add final score styling
+            resultContainer.classList.remove("correct");
+            resultContainer.classList.remove("wrong");
+            resultContainer.classList.add("finalScore");
             return;
         }
         else if(indexArr.includes(randomIndex)){
@@ -89,19 +104,34 @@ const generateNewWord = () => {
         }
     
 }
-generateBtn.addEventListener("click", generateNewWord);
+
+//generateBtn.addEventListener("click", generateNewWord);
 
 wordSubmit.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(`user input:${usrInput.value} , displayed word : ${wordContainer.textContent}`);
-    if (usrInput.value === findTranslation(wordContainer.textContent)) {
-        resultContainer.textContent = "Correct!"
-        //if correct provide new word 
+    //console.log(`user input:${usrInput.value} , displayed word : ${wordContainer.textContent}`);
+    
+    if(usrInput.value === ""){
+        return; //prevent user from submitting empty string
+    }
+     else if (usrInput.value === findTranslation(wordContainer.textContent)) {
+        //change result box style
+        resultContainer.textContent = "Correct !";
+        resultContainer.classList.add("correct");
+        resultContainer.classList.remove("wrong");
+        finalScore ++;
         generateNewWord();
+        usrInput.value = "";
     }
     else {
-        //wrong answer does not generate new word
-        resultContainer.textContent = "Wrong."
+        //store wrong answers
+        displayUnpracticedWords(wordContainer.textContent);
+        //change result box style
+        resultContainer.textContent = "Wrong.";
+        resultContainer.classList.add("wrong");
+        resultContainer.classList.remove("correct");
+        generateNewWord();
+        usrInput.value = "";
     }
 });
 
@@ -156,3 +186,7 @@ function updateVocabularyDisplay() {
     }
 }
 
+function displayUnpracticedWords(word) {
+    console.log("you need to practice this word more: " + word);
+
+}
