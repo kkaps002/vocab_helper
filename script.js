@@ -9,15 +9,16 @@ let vocabularyTest = document.getElementById("vocabularyTest");
 let vocabularyCreator = document.getElementById("vocabularyCreator");
 let startTestBtn = document.getElementById("startTestBtn");
 let goBackBtn = document.getElementById("goBackBtn");
-
 let wordContainer = document.getElementById("wordContainer");
 let usrInput = document.getElementById("usrInput");
 let wordSubmit = document.getElementById("wordSubmit");
 let resultContainer = document.getElementById("resultContainer");
 // ---------------------------------------------------------------------------------
-vocabularyTest.style.display = "none";
+
 //initialise vocabulary variable / retrieve data from local storage
 updateVocabulary();
+//hide the test part when loading the page
+vocabularyTest.style.display = "none";
 // ---------------------------------------------------------------------------------
 startTestBtn.addEventListener("click", () => {
     vocabularyTest.style.display = "flex";
