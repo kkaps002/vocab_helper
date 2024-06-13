@@ -25,14 +25,11 @@ startTestBtn.addEventListener("click", () => {
     vocabularyCreator.style.display = "none";
     generateNewWord();
 });
+
 goBackBtn.addEventListener("click", () => {
-
     location.reload();
-
-    //vocabularyCreator.style.display = "flex";
-    //vocabularyTest.style.display = "none";
-    
 });
+
 addBtn.addEventListener("click", () => {
     let word = inputWord.value;
     let definition = inputDefinition.value;
